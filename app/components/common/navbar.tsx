@@ -18,7 +18,7 @@ const Navbar = () => {
           </div>
         </div>
         <div>
-          <Link to="" className="bg-[#FF0077] font-sans text-white flex justify-center items-center gap-2.5 py-3 w-[180px]">
+          <Link to="https://paystack.com/pay/caresfoundation" className="bg-[#FF0077] font-sans text-white flex justify-center items-center gap-2.5 py-3 w-[180px]">
             Donate Now
             <img src={arrowRight} alt="arrow" />
           </Link>

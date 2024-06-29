@@ -16,7 +16,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="bg-[#F1F1F1]">
+    <div className="bg-[#F1F1F1] overflow-x-hidden">
       <Navbar />
       <Construction />
       <Hero />
