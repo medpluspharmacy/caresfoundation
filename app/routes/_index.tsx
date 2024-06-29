@@ -1,38 +1,29 @@
 import type { MetaFunction } from "@remix-run/node";
+import Construction from "~/components/common/construction";
+import Footer from "~/components/common/footer";
+import Navbar from "~/components/common/navbar";
+import About from "~/components/home/about";
+import Donation from "~/components/home/donation";
+import Hero from "~/components/home/hero";
+import ImageGallery from "~/components/home/image_gallery.tsx";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix SPA" },
-    { name: "description", content: "Welcome to Remix (SPA Mode)!" },
+    { title: "Medplus Cares Foundation" },
+    { name: "description", content: "Medplus Cares Foundation" },
   ];
 };
 
 export default function Index() {
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl">Welcome to Remix (SPA Mode)</h1>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/guides/spa-mode"
-            rel="noreferrer"
-          >
-            SPA Mode Guide
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div className="bg-[#F1F1F1]">
+      <Navbar />
+      <Construction />
+      <Hero />
+      <ImageGallery />
+      <About />
+      <Donation />
+      <Footer />
     </div>
   );
 }
