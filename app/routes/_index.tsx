@@ -20,7 +20,6 @@ export default function Index() {
       <Navbar />
       <Construction />
       <Hero />
-      <ImageGallery />
       <About />
       <Donation />
       <Footer />

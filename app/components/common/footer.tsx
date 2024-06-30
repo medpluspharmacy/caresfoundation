@@ -4,8 +4,8 @@ import whatsapp from "~/assets/whatsapp.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-white mt-20">
-      <div className="container mx-auto px-4 h-[103px] flex items-center justify-between">
+    <footer className="bg-white mt-20 py-6 sm:py-0">
+      <div className="container mx-auto px-4 sm:h-[103px] flex flex-col md:flex-row gap-2 sm:items-center justify-between">
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
