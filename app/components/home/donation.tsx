@@ -15,7 +15,7 @@ const Donation = () => {
         </div>
         <div>
           <Link
-            to="https://paystack.com/pay/caresfoundation"
+            to="https://paystack.com/pay/eflxw4vy00"
             className="bg-[#FF0077] font-sans text-white flex justify-center items-center gap-2.5 py-3 md:w-[180px]"
           >
             Donate Now

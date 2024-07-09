@@ -31,7 +31,7 @@ const Navbar = () => {
         </div>
         <div className="hidden md:block">
           <Link
-            to="https://paystack.com/pay/caresfoundation"
+            to="https://paystack.com/pay/eflxw4vy00"
             className="bg-[#FF0077] font-sans text-white flex justify-center items-center gap-2.5 py-3 w-[180px]"
           >
             Donate Now
@@ -65,7 +65,7 @@ const Navbar = () => {
           <li>
             <Link
               className="bg-[#FF0077] font-sans text-white w-full py-3 flex gap-3 justify-center items-center"
-              to="https://paystack.com/pay/caresfoundation"
+              to="https://paystack.com/pay/eflxw4vy00"
             >
               Donate Now
               <img src={arrowRight} alt="arrow" />
