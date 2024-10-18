@@ -52,7 +52,7 @@ const Navbar = () => {
               Initiatives
             </NavLink>
             <NavLink
-              to="/get-involve"
+              to="/"
               className={({ isActive }) => `
      px-3 py-2 relative 
     ${
@@ -130,7 +130,7 @@ const Navbar = () => {
           </li>
           <li className="mb-6">
             <NavLink
-              to="/get-involve"
+              to="/"
               className={({ isActive }) => `
      px-3 py-2 relative 
     ${
