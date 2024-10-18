@@ -42,24 +42,14 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) => `
-     px-3 py-2 relative 
-    ${
-      isActive
-        ? "after:absolute after:left-3 after:w-1/2 after:h-[2px] after:bg-[#FF0077] after:bottom-0"
-        : ""
-    }`}
+     px-3 py-2 relative `}
             >
               Initiatives
             </NavLink>
             <NavLink
               to="/"
               className={({ isActive }) => `
-     px-3 py-2 relative 
-    ${
-      isActive
-        ? "after:absolute after:left-3 after:w-1/2 after:h-[2px] after:bg-[#FF0077] after:bottom-0"
-        : ""
-    }`}
+     px-3 py-2 relative `}
             >
               Get Involved
             </NavLink>
@@ -118,12 +108,7 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) => `
-     px-3 py-2 relative 
-    ${
-      isActive
-        ? "after:absolute after:left-3 after:w-1/2 after:h-[2px] after:bg-[#FF0077] after:bottom-0"
-        : ""
-    }`}
+     px-3 py-2 relative `}
             >
               Initiatives
             </NavLink>
@@ -132,12 +117,7 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) => `
-     px-3 py-2 relative 
-    ${
-      isActive
-        ? "after:absolute after:left-3 after:w-1/2 after:h-[2px] after:bg-[#FF0077] after:bottom-0"
-        : ""
-    }`}
+     px-3 py-2 relative `}
             >
               Get Involved
             </NavLink>
