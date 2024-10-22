@@ -10,7 +10,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
 const GetInvolve = () => {
   return (
-    <div className="py-16">
+    <div className="py-10 md:py-16">
       <ClientOnly>
         {() => (
           <Marquee pauseOnHover={true}>
@@ -35,26 +35,26 @@ const GetInvolve = () => {
         )}
       </ClientOnly>
 
-      <div className="mx-auto text-center font-poppins text-xl max-w-5xl px-4 mt-5 mb-12">
+      <div className="mx-auto text-center font-poppins text-base md:text-xl max-w-5xl px-4 mt-5 mb-12">
         We recognize that to achieve a life-changing impact in the lives of our
         beneficiaries we cannot do it alone. We require the assistance of
         like-minded individuals and organizations to achieve our goals.
       </div>
-      <div className="container mx-auto bg-white rounded-3xl flex gap-12 py-20 px-16">
+      <div className="container mx-auto bg-white rounded-3xl flex lg:flex-row flex-col gap-5 md:gap-12 md:py-20 py-7 md:px-16 px-6">
         <div className="max-w-[456px]">
-          <div className="text-6xl font-normal">
+          <div className="text-4xl md:text-6xl font-normal">
             For Partnership & Sponsorships{" "}
           </div>
-          <div className="font-poppins font-normal text-xl mt-5 mb-3">
+          <div className="font-poppins font-normal text-base md:text-xl mt-5 mb-3">
             Kindly fill out the form and we will contact you as soon as
             possible.
           </div>
-          <div>
+          <div className="hidden lg:block">
             <img src={smiling_kids} alt="smiling kids" />
           </div>
         </div>
         <form className="w-full">
-          <div className="grid grid-cols-2 gap-5 mb-5">
+          <div className="grid md:grid-cols-2 gap-5 mb-5">
             <div>
               <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
                 Full name *
@@ -78,7 +78,7 @@ const GetInvolve = () => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-5 mb-5">
+          <div className="grid md:grid-cols-2 gap-5 mb-5">
             <div>
               <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
                 Phone number *
@@ -112,7 +112,7 @@ const GetInvolve = () => {
             ></textarea>
           </div>
           <div className="mt-6">
-            <button className="bg-[#FF0077] font-sans text-white flex justify-center items-center rounded-md gap-2.5 py-3 w-[165px] mx-auto md:mx-0 md:ml-auto">
+            <button className="bg-[#FF0077] font-sans text-white flex justify-center items-center rounded-md gap-2.5 py-3 w-full md:w-[165px] mx-auto md:mx-0 md:ml-auto">
               Submit Request
             </button>
           </div>

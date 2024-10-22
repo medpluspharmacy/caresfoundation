@@ -9,7 +9,7 @@ const Media = () => {
   return (
     <div className="container mx-auto px-4 grid lg:grid-cols-[350px_1fr] gap-4 py-16">
       <div>
-        <div className="text-primary text-4xl">Our Media</div>
+        <div className="text-primary text-4xl font-bold">Our Media</div>
         <div className="my-5 text-lg font-poppins">
           Catch a glimpse of the impact we have made so far through a visual
           journey, showcasing our noteworthy achievements.

@@ -4,7 +4,7 @@ import instagram from "~/assets/instagram.svg";
 
 const Footer = () => {
   return (
-    <footer className="md:bg-white pt-6 sm:pt-20 rounded-t-[140px]">
+    <footer id="contact" className="md:bg-white pt-6 sm:pt-20 rounded-t-[140px]">
       <div className="">
         <div className="container mx-auto px-4 flex gap-4 md:flex-row flex-col justify-center items-center md:justify-between">
           <div className="text-4xl lg:text-7xl bg-dark bg-clip-text text-transparent text-center">
@@ -43,20 +43,17 @@ const Footer = () => {
             <div>
               <div className="text-base lg:text-4xl text-black mb-3 lg:mb-5">Navigation</div>
               <div className="font-poppins grid gap-3">
-                <Link to="/" className="block">
+                <Link to="/about" className="block">
                   About Us
                 </Link>
-                <Link to="/" className="block">
+                <Link to="/media" className="block">
                   Media
                 </Link>
-                <Link to="/" className="block">
+                <Link to="/initiatives" className="block">
                   Initiatives
                 </Link>
-                <Link to="/" className="block">
+                <Link to="/get-involve" className="block">
                   Get Involved
-                </Link>
-                <Link to="/" className="block">
-                  Contact us
                 </Link>
               </div>
             </div>

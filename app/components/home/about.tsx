@@ -9,7 +9,7 @@ const About = () => {
     <div className="py-10 sm:py-20 font-light bg-white">
       <div className="container mx-auto px-4 flex md:flex-row flex-col gap-6 items-center">
         <div className="text-center md:text-left">
-          <div className="md:text-4xl text-2xl mb-4 capitalize">What we do</div>
+          <div className="md:text-4xl text-2xl mb-4 capitalize">Who we do</div>
           <div className="text-sm sm:text-xl max-w-[809px] text-[#484848] font-poppins relative">
             At Medplus Cares Foundation, we work towards enriching and
             empowering individuals by providing access to healthcare, education,

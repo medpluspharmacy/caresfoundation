@@ -7,7 +7,9 @@ const About = () => {
   return (
     <div className="py-16 text-center md:text-left">
       <div className="container mx-auto px-4">
-        <div className="text-primary text-3xl md:text-4xl mb-6">Who we are</div>
+        <div className="text-primary text-3xl md:text-4xl mb-6 font-bold">
+          Who we are
+        </div>
         <div className="max-w-5xl text-sm md:text-lg font-poppins">
           <div>
             The Medplus Cares Foundation was officially launched on November 5,
