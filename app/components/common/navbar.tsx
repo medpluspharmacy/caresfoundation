@@ -1,8 +1,9 @@
 import { NavLink } from "@remix-run/react";
-import logo from "~/assets/logo.svg";
+import logo from "~/assets/logo.png";
 import hamburger from "~/assets/hamburger.svg";
 import arrowRight from "~/assets/arrow-right.svg";
 import { useState } from "react";
+import Button from "./button";
 
 const nav_links = [
   { name: "About Us", slug: "/about" },
@@ -18,11 +19,11 @@ const Navbar = () => {
   return (
     <nav className="bg-white">
       <div className="container mx-auto px-4 h-[103px] flex items-center justify-between">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-7">
           <NavLink to="/">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className="max-w-[183px]" />
           </NavLink>
-          <div className="hidden lg:flex items-center gap-1 text-lg">
+          <div className="hidden lg:flex items-center gap-3 text-xl">
             {nav_links.map((item) => (
               <NavLink
                 key={item.slug}
@@ -31,7 +32,7 @@ const Navbar = () => {
      px-3 py-2 relative 
     ${
       isActive && !item?.isInternalLink
-        ? "after:absolute after:left-3 after:w-1/2 after:h-[2px] after:bg-[#FF0077] after:bottom-0"
+        ? "after:absolute after:left-3 after:w-1/2 after:h-[2px] after:bg-[#FF0077] after:bottom-0 text-primary"
         : ""
     }`}
               >
@@ -40,14 +41,11 @@ const Navbar = () => {
             ))}
           </div>
         </div>
-        <div className="hidden lg:block">
-          <NavLink
-            to="https://paystack.com/pay/eflxw4vy00"
-            className="bg-[#FF0077] font-sans text-white flex justify-center items-center gap-2.5 py-3 w-[180px] rounded"
-          >
+        <div className="hidden lg:block text-lg">
+          <Button>
             Donate Now
             <img src={arrowRight} alt="arrow" />
-          </NavLink>
+          </Button>
         </div>
         <div onClick={handleClick} className="cursor-pointer lg:hidden">
           <img src={hamburger} alt="hamburger" />
@@ -70,7 +68,7 @@ const Navbar = () => {
      px-3 py-2 relative 
     ${
       isActive && !item?.isInternalLink
-        ? "after:absolute after:left-3 after:w-1/2 after:h-[2px] after:bg-[#FF0077] after:bottom-0"
+        ? "after:absolute after:left-3 after:w-1/2 after:h-[2px] after:bg-[#FF0077] after:bottom-0 text-primary"
         : ""
     }`}
               >

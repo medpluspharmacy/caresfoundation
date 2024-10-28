@@ -8,7 +8,7 @@ const OurFocus = () => {
   return (
     <div className="py-20 bg-[#FFFEF6] text-center">
       <div className="container mx-auto px-4">
-        <div className="text-2xl sm:text-4xl max-w-[162px] md:max-w-[426px] mx-auto font-light mb-10">
+        <div className="text-2xl sm:text-6xl max-w-[162px] md:max-w-[426px] mx-auto font-normal mb-10">
           Get to know about our focus
         </div>
         <div className="text-left grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
