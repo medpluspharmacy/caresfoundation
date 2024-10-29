@@ -1,14 +1,55 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import smiling_kids from "app/assets/smiling_kids.svg";
-import { ActionFunctionArgs } from "@remix-run/node";
+import { ActionFunctionArgs, json } from "@remix-run/node";
 import { ClientOnly } from "remix-utils/client-only";
+import { sendMail } from "~/utils/mailer";
+import { emailContent } from "~/utils/emailContent";
+import { Form, useActionData, useNavigation } from "@remix-run/react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export async function action({ request }: ActionFunctionArgs) {
-  return null;
+  try {
+    const body = await request.formData();
+
+    const fullName = body.get("fullName") as string;
+    const email = body.get("email") as string;
+    const phoneNumber = body.get("phoneNumber") as string;
+    const organisation = body.get("organisation") as string;
+    const message = body.get("message") as string;
+
+    const emailContentData = emailContent(
+      fullName,
+      email,
+      phoneNumber,
+      organisation,
+      message
+    );
+
+    if (emailContentData) {
+      await sendMail(
+        emailContentData.subject,
+        "",
+        emailContentData.htmlContent
+      );
+    }
+
+    return json({ success: true });
+  } catch (error) {
+    console.log(error);
+    return json({
+      message: "An Error has occured. Pls try again",
+      data: error,
+      success: false,
+    });
+  }
 }
 
 const GetInvolve = () => {
+  const action: any = useActionData();
+  const navigation = useNavigation();
+  console.log(navigation);
+  console.log(action);
   return (
     <div className="py-10 md:py-16">
       <ClientOnly>
@@ -40,7 +81,7 @@ const GetInvolve = () => {
         beneficiaries we cannot do it alone. We require the assistance of
         like-minded individuals and organizations to achieve our goals.
       </div>
-      <div className="container mx-auto bg-white rounded-3xl flex lg:flex-row flex-col gap-5 md:gap-12 md:py-20 py-7 md:px-16 px-6">
+      <div className="container mx-auto bg-white rounded-3xl flex lg:flex-row flex-col gap-5 md:gap-12 md:py-20 py-10 md:px-16 px-6">
         <div className="max-w-[456px]">
           <div className="text-4xl md:text-6xl font-normal">
             For Partnership & Sponsorships{" "}
@@ -53,70 +94,92 @@ const GetInvolve = () => {
             <img src={smiling_kids} alt="smiling kids" />
           </div>
         </div>
-        <form className="w-full">
-          <div className="grid md:grid-cols-2 gap-5 mb-5">
+        {action?.data?.success && (
+          <div className="text-center mx-auto">
+            <div className="text-2xl">✅</div>
+            <div className="mt-3 mb-2 text-xl font-[550]">Form Submitted.</div>
             <div>
-              <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
-                Full name *
-              </label>
-              <input
-                type="text"
-                placeholder="First name"
-                className="w-full border border-[#CBCBCB] h-10 rounded-md px-4 focus:outline-none"
-                required
-              />
+              Thank you for contacting us. Someone from the team will respond to
+              you shortly.
+            </div>
+          </div>
+        )}
+        {!action?.data?.success && (
+          <Form method="post" className="w-full">
+            <div className="grid md:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
+                  Full name *
+                </label>
+                <input
+                  name="fullName"
+                  type="text"
+                  placeholder="Full name"
+                  className="w-full border border-[#CBCBCB] h-10 rounded-md px-4 focus:outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
+                  Email *
+                </label>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Your Email"
+                  className="w-full border border-[#CBCBCB] h-10 rounded-md px-4 focus:outline-none"
+                  required
+                />
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
+                  Phone number *
+                </label>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  placeholder="Phone number"
+                  className="w-full border border-[#CBCBCB] h-10 rounded-md px-4 focus:outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
+                  Organisation
+                </label>
+                <input
+                  type="text"
+                  name="organisation"
+                  placeholder="Organisation Name"
+                  className="w-full border border-[#CBCBCB] h-10 rounded-md px-4 focus:outline-none"
+                />
+              </div>
             </div>
             <div>
               <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
-                Email *
+                Message
               </label>
-              <input
-                type="text"
-                placeholder="Your Email"
-                className="w-full border border-[#CBCBCB] h-10 rounded-md px-4 focus:outline-none"
-                required
-              />
+              <textarea
+                name="message"
+                rows={5}
+                className="w-full border border-[#CBCBCB] rounded-md p-4 focus:outline-none"
+              ></textarea>
             </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-5 mb-5">
-            <div>
-              <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
-                Phone number *
-              </label>
-              <input
-                type="tel"
-                placeholder="Phone number"
-                className="w-full border border-[#CBCBCB] h-10 rounded-md px-4 focus:outline-none"
-                required
-              />
+            <div className="mt-6">
+              <button className="bg-[#FF0077] font-sans text-white flex justify-center items-center rounded-md gap-2.5 py-3 w-full md:w-[165px] mx-auto md:mx-0 md:ml-auto">
+                {navigation.state === "submitting" ? (
+                  <ClientOnly>
+                    {() => <ClipLoader color="white" size="40px" />}
+                  </ClientOnly>
+                ) : (
+                  "Submit Request"
+                )}
+              </button>
             </div>
-            <div>
-              <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
-                Organisation
-              </label>
-              <input
-                type="text"
-                placeholder="Organisation Name"
-                className="w-full border border-[#CBCBCB] h-10 rounded-md px-4 focus:outline-none"
-              />
-            </div>
-          </div>
-          <div>
-            <label className="text-[#6C7275] block mb-2 uppercase font-bold text-xs font-poppins">
-              Message
-            </label>
-            <textarea
-              name="message"
-              rows={5}
-              className="w-full border border-[#CBCBCB] rounded-md p-4 focus:outline-none"
-            ></textarea>
-          </div>
-          <div className="mt-6">
-            <button className="bg-[#FF0077] font-sans text-white flex justify-center items-center rounded-md gap-2.5 py-3 w-full md:w-[165px] mx-auto md:mx-0 md:ml-auto">
-              Submit Request
-            </button>
-          </div>
-        </form>
+          </Form>
+        )}
       </div>
     </div>
   );

@@ -60,9 +60,8 @@ const Navbar = () => {
       >
         <ul className="container mx-auto px-4">
           {nav_links.map((item) => (
-            <li className="mb-6">
+            <li key={item.slug} className="mb-6">
               <NavLink
-                key={item.slug}
                 to={item.slug}
                 className={({ isActive }) => `
      px-3 py-2 relative 

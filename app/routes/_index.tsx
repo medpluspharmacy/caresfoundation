@@ -35,7 +35,6 @@ export const links: LinksFunction = () => {
 export default function Index() {
   return (
     <>
-      <Construction />
       <Hero />
       <About />
       <OurFocus />

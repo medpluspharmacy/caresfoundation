@@ -14,7 +14,7 @@ const Donation = () => {
           Experience the joy of making a difference by donating today to impact
           lives!
         </div>
-        <div>
+        <div className="flex justify-center">
           <Button>
             Donate Now
             <img src={arrowRight} alt="arrow" />
