@@ -5,3 +5,58 @@
 body {
     font-family: 'Times New Roman', Times, serif;
 }
+
+@layer components {  
+    .leftsided_wrapper {
+      @apply pl-4
+    }
+    .rightsided_wrapper {
+      @apply pr-4
+    }
+  
+    @media (min-width: 640px) {
+      .leftsided_wrapper {
+        @apply w-[calc(100%-(100%-640px)/2)] ml-auto pl-4
+      }
+      .rightsided_wrapper {
+        @apply w-[calc(100%-(100%-640px)/2)] mr-auto pr-4
+      }
+    }
+  
+    @media (min-width: 768px) {
+      .leftsided_wrapper {
+        @apply w-[calc(100%-(100%-768px)/2)] ml-auto pl-4
+      }
+      .rightsided_wrapper {
+        @apply w-[calc(100%-(100%-768px)/2)] mr-auto pr-4
+      }
+    }
+  
+    @media (min-width: 1024px) {
+      .leftsided_wrapper {
+        @apply w-[calc(100%-(100%-1024px)/2)] ml-auto pl-4
+      }
+      .rightsided_wrapper {
+        @apply w-[calc(100%-(100%-1024px)/2)] mr-auto pr-4
+      }
+    }
+  
+    /*These will create wrapper for sections that have one sided spacing*/
+    @media (min-width: 1280px) {
+      .leftsided_wrapper {
+        @apply w-[calc(100%-(100%-1280px)/2)] ml-auto pl-4
+      }
+      .rightsided_wrapper {
+        @apply w-[calc(100%-(100%-1280px)/2)] mr-auto pr-4
+      }
+    }
+  
+    @media (min-width: 1536px) {
+      .leftsided_wrapper {
+        @apply w-[calc(100%-(100%-1536px)/2)] ml-auto pl-4
+      }
+      .rightsided_wrapper {
+        @apply w-[calc(100%-(100%-1536px)/2)] mr-auto pr-4
+      }
+  }
+  }

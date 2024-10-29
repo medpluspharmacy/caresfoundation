@@ -1,51 +1,68 @@
-# templates/spa
+# Welcome to Remix!
 
-This template leverages [Remix SPA Mode](https://remix.run/docs/en/main/guides/spa-mode) to build your app as a Single-Page Application using [Client Data](https://remix.run/docs/en/main/guides/client-data) for all of your data loads and mutations.
+- [Remix Docs](https://remix.run/docs)
+- [Netlify Functions Overview](https://docs.netlify.com/functions/overview)
 
-## Setup
+## Netlify Setup
 
-```shellscript
-npx create-remix@latest --template remix-run/remix/templates/spa
+1. Install the [Netlify CLI](https://docs.netlify.com/cli/get-started/):
+
+```sh
+npm i -g netlify-cli
+```
+
+If you have previously installed the Netlify CLI, you should update it to the latest version:
+
+```sh
+npm i -g netlify-cli@latest
+```
+
+2. Sign up and log in to Netlify:
+
+```sh
+netlify login
+```
+
+3. Create a new site:
+
+```sh
+netlify init
 ```
 
 ## Development
 
-You can develop your SPA app just like you would a normal Remix app, via:
+Ensure all packages are installed by running:
 
-```shellscript
-npm run dev
+```sh
+npm install
 ```
 
-## Production
+Run
 
-When you are ready to build a production version of your app, `npm run build` will generate your assets and an `index.html` for the SPA.
-
-```shellscript
-npm run build
+```sh
+netlify dev
 ```
 
-### Preview
+Open up [http://localhost:8888](http://localhost:8888), and you're ready to go!
 
-You can preview the build locally with [vite preview](https://vitejs.dev/guide/cli#vite-preview) to serve all routes via the single `index.html` file:
+### Serve your site locally
 
-```shellscript
-npm run preview
+To serve your site locally in a production-like environment, run
+
+```sh
+netlify serve
 ```
 
-> [!IMPORTANT]
->
-> `vite preview` is not designed for use as a production server
+Your site will be available at [http://localhost:8888](http://localhost:8888). Note that it will not auto-reload when you make changes.
 
-### Deployment
+## Deployment
 
-You can then serve your app from any HTTP server of your choosing. The server should be configured to serve multiple paths from a single root `/index.html` file (commonly called "SPA fallback"). Other steps may be required if the server doesn't directly support this functionality.
+There are two ways to deploy your app to Netlify, you can either link your app to your git repo and have it auto deploy changes to Netlify, or you can deploy your app manually. If you've followed the setup instructions already, all you need to do is run this:
 
-For a simple example, you could use [sirv-cli](https://www.npmjs.com/package/sirv-cli):
+```sh
+# preview deployment
+netlify deploy --build
 
-```shellscript
-npx sirv-cli build/client/ --single
+# production deployment
+netlify deploy --build --prod
 ```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
