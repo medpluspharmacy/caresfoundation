@@ -19,7 +19,7 @@ const About = () => {
             income generation opportunities, and cultivate a bright future for
             all.
           </div>
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex justify-center md:justify-start">
             <Button>
               Donate Now
               <img src={arrowRight} alt="arrow" />
