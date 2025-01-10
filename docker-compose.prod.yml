@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  medpluscares-prod:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      args:
+        REMIX_PORT: 4020
+    container_name: medpluscares-prod
+    restart: always
+    ports:
+      - "4020:4020"
+    volumes:
+      - .:/var/www
+    deploy:
+      resources:
+        limits:
+          memory: 2.5G
+networks:
+    beyondshop_prod_network:
+        driver: bridge
