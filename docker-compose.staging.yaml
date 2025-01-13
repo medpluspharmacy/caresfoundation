@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  medpluscares-staging:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      args:
+        REMIX_PORT: 4010
+    container_name: medpluscares-staging
+    restart: always
+    ports:
+      - "4010:4010"
+    volumes:
+      - .:/var/www
+    deploy:
+      resources:
+        limits:
+          memory: 2.5G
+networks:
+    beyondshop_staging_network:
+        driver: bridge
